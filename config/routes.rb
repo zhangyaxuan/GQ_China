@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   devise_for :users
   #get 'welcome/index'
 
@@ -7,6 +8,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+
+  match '/admin' => 'welcome#admin', :via => :get
+  match '/admin_login' => 'welcome#admin_login', :via => :get
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -51,9 +55,9 @@ Rails.application.routes.draw do
   #   resources :photos, concerns: :toggleable
 
   # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
+  #   namespace :admin_login do
+  #     # Directs /admin_login/products/* to Admin::ProductsController
+  #     # (app/controllers/admin_login/products_controller.rb)
   #     resources :products
   #   end
 end

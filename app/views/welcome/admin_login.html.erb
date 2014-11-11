@@ -1,0 +1,10 @@
+<%= form_for(:admin, :url => session_path(:admin)) do |f| %>
+    <div class="form-group">
+      <%= f.text_field :email , :class=>"email form-control", :placeholder=>"email"%>
+    </div>
+    <div class="form-group">
+      <%= f.password_field :password, :class=>"password form-control", :placeholder=>"password"%>
+    </div>
+    <%= f.submit 'submit', :class=>"btn btn-primary"%>
+    <p class="alert"><%= alert %></p>
+<% end %>
